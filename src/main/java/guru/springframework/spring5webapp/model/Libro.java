@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Libro {
@@ -18,7 +19,8 @@ public class Libro {
 	private Long id;
 	private String Titulo;
 	private String Isbn;
-	private String Publicador;
+	@OneToOne
+	private Editorial Editorial;
 
 	@ManyToMany
 	@JoinTable(name="autor_libro", joinColumns=@JoinColumn(name="libro_id"), 
@@ -29,16 +31,16 @@ public class Libro {
 
 	}
 
-	public Libro(String titulo, String isbn, String publicador) {
+	public Libro(String titulo, String isbn, Editorial editorial) {
 		this.Titulo = titulo;
 		this.Isbn = isbn;
-		this.Publicador = publicador;
+		this.Editorial = editorial;
 	}
 
-	public Libro(String titulo, String isbn, String publicador, Set<Autor> autores) {
+	public Libro(String titulo, String isbn, Editorial editorial, Set<Autor> autores) {
 		this.Titulo = titulo;
 		this.Isbn = isbn;
-		this.Publicador = publicador;
+		this.Editorial = editorial;
 		this.Autores = autores;
 	}
 
@@ -66,12 +68,12 @@ public class Libro {
 		Isbn = isbn;
 	}
 
-	public String getPublicador() {
-		return Publicador;
+	public Editorial getEditorial() {
+		return Editorial;
 	}
 
-	public void setPublicador(String publicador) {
-		Publicador = publicador;
+	public void setEditorial(Editorial editorial) {
+		Editorial = editorial;
 	}
 
 	public Set<Autor> getAutores() {
@@ -109,7 +111,7 @@ public class Libro {
 
 	@Override
 	public String toString() {
-		return "Libro [id=" + id + ", Titulo=" + Titulo + ", Isbn=" + Isbn + ", Publicador=" + Publicador + ", Autores="
+		return "Libro [id=" + id + ", Titulo=" + Titulo + ", Isbn=" + Isbn + ", Editorial=" + Editorial + ", Autores="
 				+ Autores + "]";
 	}
 
