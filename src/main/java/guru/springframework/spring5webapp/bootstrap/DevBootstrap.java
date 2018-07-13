@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 import guru.springframework.spring5webapp.model.Autor;
 import guru.springframework.spring5webapp.model.Editorial;
 import guru.springframework.spring5webapp.model.Libro;
-import guru.springframework.spring5webapp.model.repositories.AutorRepository;
-import guru.springframework.spring5webapp.model.repositories.EditorialRepository;
-import guru.springframework.spring5webapp.model.repositories.LibroRepository;
+import guru.springframework.spring5webapp.repositories.AutorRepository;
+import guru.springframework.spring5webapp.repositories.EditorialRepository;
+import guru.springframework.spring5webapp.repositories.LibroRepository;
 
 @Component
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{

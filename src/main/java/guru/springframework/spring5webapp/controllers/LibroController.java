@@ -1,10 +1,10 @@
-package guru.springframework.spring5webapp.model.controllers;
+package guru.springframework.spring5webapp.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import guru.springframework.spring5webapp.model.repositories.LibroRepository;
+import guru.springframework.spring5webapp.repositories.LibroRepository;
 
 @Controller
 public class LibroController {
